@@ -6,4 +6,6 @@ require('core.plugin_config.git_cs')
 require('core.plugin_config.lsp_config')
 require('core.plugin_config.completions')
 require('core.plugin_config.gitsigns')
+require('core.plugin_config.tabs')
+require('core.plugin_config.sessions')
 

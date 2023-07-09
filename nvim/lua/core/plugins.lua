@@ -34,6 +34,17 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lsp",
   }
   use 'lewis6991/gitsigns.nvim'
+  -- tabs
+  use 'romgrk/barbar.nvim'
+  -- sessions
+  use({
+    "pluffie/neoproj",
+    config  = function()
+      require("neoproj").setup {
+        project_path = "~/Code"
+      }
+    end
+  })
   use({
   	"Pocco81/auto-save.nvim",
 	config = function()
