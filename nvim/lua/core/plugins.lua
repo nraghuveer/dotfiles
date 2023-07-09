@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
   }
+  use 'lewis6991/gitsigns.nvim'
   use({
   	"Pocco81/auto-save.nvim",
 	config = function()

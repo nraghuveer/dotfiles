@@ -90,6 +90,11 @@ _G.packer_plugins = {
     path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
