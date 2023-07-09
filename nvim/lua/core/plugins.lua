@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "glepnir/lspsaga.nvim",
+  }
+  use {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
   }
   use({
   	"Pocco81/auto-save.nvim",
