@@ -110,6 +110,11 @@ _G.packer_plugins = {
     path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mellow.nvim"] = {
+    loaded = true,
+    path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/mellow.nvim",
+    url = "https://github.com/kvrohit/mellow.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/raghuveernaraharisetti/.local/share/nvim/site/pack/packer/start/nvim-cmp",
