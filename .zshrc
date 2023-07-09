@@ -3,6 +3,8 @@
                         
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+source $HOME/.config/.exportsrc
                    
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,7 +91,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f $HOME/.exports_rc ]; then
+if [ -f .exports_rc ]; then
    . $HOME/.exports_rc
 fi
 if [ -f $HOME/.teleport_functions ]; then
