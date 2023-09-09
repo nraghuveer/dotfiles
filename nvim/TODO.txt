@@ -1,3 +1,4 @@
 [ ] - Better Git integration
 [x] - Add tabs support
 [ ] - Add support for go tests
+[ ] - Commenting with gcc

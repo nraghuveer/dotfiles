@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
     "pluffie/neoproj",
     config  = function()
       require("neoproj").setup {
-        project_path = "~/Code"
+        project_path = "/home/rnaraharisetti/Code"
       }
     end
   })
