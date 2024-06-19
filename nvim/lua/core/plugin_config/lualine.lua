@@ -9,6 +9,10 @@ require('lualine').setup {
         'filename',
         path = 1,
       }
-    }
+    },
+    lualine_c = {},
+    lualine_x = {"diagnostics"},
+    lualine_y = {},
+    lualine_z = {},
   }
 }

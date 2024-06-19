@@ -18,3 +18,7 @@ vim.cmd [[ set noswapfile ]]
 
 --Line numbers
 vim.wo.number = true
+vim.wo.relativenumber = true
+
+-- render
+vim.opt.list = true

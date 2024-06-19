@@ -14,7 +14,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use ({ 'projekt0n/github-nvim-theme' })
-  use 'kvrohit/mellow.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
@@ -36,22 +35,18 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   -- tabs
   use 'romgrk/barbar.nvim'
-  -- sessions
-  use({
-    "pluffie/neoproj",
-    config  = function()
-      require("neoproj").setup {
-        project_path = "/home/rnaraharisetti/Code"
-      }
-    end
-  })
   use({
   	"Pocco81/auto-save.nvim",
 	config = function()
 		 require("auto-save").setup {}
 	end,
-})
-
+  })
+  -- indent lines
+  use "lukas-reineke/indent-blankline.nvim"
+  use 'ThePrimeagen/git-worktree.nvim'
+  use 'lukas-reineke/lsp-format.nvim'
+  use 'rmagatti/auto-session'
+  use "rebelot/kanagawa.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

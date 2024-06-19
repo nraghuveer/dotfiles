@@ -9,6 +9,15 @@ local config = {}
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
+config.front_end = "WebGpu"
+config.keys = {
+  {
+    key = 'r',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ReloadConfiguration,
+  },
+}
+
 
 return config
 

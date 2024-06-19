@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+  restore_upcoming_session = true,
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/rnaraharisetti/.config/nvim'
