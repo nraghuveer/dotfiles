@@ -32,6 +32,13 @@ return require('packer').startup(function(use)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
   }
+
+ --harpoon
+ use {
+		'ThePrimeagen/harpoon',
+	requires = { {'nvim-lua/plenary.nvim'} }
+ }
+
   use 'lewis6991/gitsigns.nvim'
   -- tabs
   use 'romgrk/barbar.nvim'

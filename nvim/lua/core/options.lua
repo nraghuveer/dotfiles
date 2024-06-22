@@ -21,4 +21,5 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- render
-vim.opt.list = true
+vim.opt.list = false
+

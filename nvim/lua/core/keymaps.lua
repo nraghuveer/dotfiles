@@ -7,4 +7,3 @@ vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
 -- clear search
 vim.keymap.set('n', '<leader>vnh', ':nohlsearch<CR>')
 
-
