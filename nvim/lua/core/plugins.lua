@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/lsp-format.nvim'
   use 'rmagatti/auto-session'
   use "rebelot/kanagawa.nvim"
+  use "vague2k/vague.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
