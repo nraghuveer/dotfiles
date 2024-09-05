@@ -4,4 +4,5 @@
 -- require("core.colorscheme")
 -- require("core.plugin_config")
 require("core.lazy_core.lazy_setup")
-require("core.lazy_core.avante")
+require('avante_lib').load()
+-- require("core.lazy_core.avante")
