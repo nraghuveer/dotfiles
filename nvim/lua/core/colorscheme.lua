@@ -2,7 +2,8 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- vim.cmd('colorscheme github_dark_dimmed')
 -- vim.cmd('colorscheme kanagawa-dragon')
-vim.cmd('colorscheme vague')
+-- vim.cmd('colorscheme vague')
+vim.cmd('colorscheme rusticated')
 --
 require("vague").setup({
   transparent = false, -- don't set background

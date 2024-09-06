@@ -1,6 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -18,8 +15,10 @@ vim.cmd [[ set noswapfile ]]
 
 --Line numbers
 vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 
 -- render
 vim.opt.list = false
+
+vim.opt.modifiable = true
 

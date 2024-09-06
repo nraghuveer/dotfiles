@@ -5,4 +5,7 @@
 -- require("core.plugin_config")
 require("core.lazy_core.lazy_setup")
 require('avante_lib').load()
--- require("core.lazy_core.avante")
+require('core.plugin_config.telescope')
+require('core.plugin_config.lsp_config')
+require('core.colorscheme')
+require('core.options')

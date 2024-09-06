@@ -3,8 +3,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
+  if vim.v.shell_error ~= 0 then vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
       { out, "WarningMsg" },
       { "\nPress any key to exit..." },
@@ -23,7 +22,34 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  { "nvim-treesitter/nvim-treesitter" }, -- Treesitter is a high-performance syntax highlighter for Neovim.
+  { -- color schemes
+    "vague2k/vague.nvim",
+    "d00h/nvim-rusticated",
+  },
+  {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+	"nvimdev/lspsaga.nvim",
+    "lukas-reineke/lsp-format.nvim",
+
+  },
+  {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  { "nvim-treesitter/nvim-treesitter" },
   {
     "folke/lazy.nvim",
     dependencies = {
@@ -85,6 +111,8 @@ require("lazy").setup({
 	{ "<leader>aa", function() require("avante.api").ask() end, desc = "avante: ask", mode = { "n", "v" } },
 	{ "<leader>ar", function() require("avante.api").refresh() end, desc = "avante: refresh" },
 	{ "<leader>ae", function() require("avante.api").edit() end, desc = "avante: edit", mode = "v" },
+	{ "<leader>ac", function() require("avante.api").ask({ ask = false }) end, desc = "avante: chat", mode = "n" },
+
 	},
 	dependencies = {
 	"stevearc/dressing.nvim",
