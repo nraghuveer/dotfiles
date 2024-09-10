@@ -3,7 +3,18 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls" }
 })
 -- indent lines
-require("ibl").setup()
+local highlight = {
+    "CursorColumn",
+    "Whitespace",
+}
+require("ibl").setup {
+    indent = { highlight = highlight, char = "" },
+    whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+    },
+    scope = { enabled = false },
+}
 
 vim.cmd("set scl=yes")
 vim.cmd("set autoindent noexpandtab tabstop=4 shiftwidth=4 invlist")

@@ -30,6 +30,8 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+		"ThePrimeagen/harpoon",
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
