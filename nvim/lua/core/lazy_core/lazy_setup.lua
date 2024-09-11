@@ -1,4 +1,15 @@
 -- Bootstrap lazy.nvim
+
+-- Function to check if hostname contains "raghu"
+local function avante_provider()
+    local hostname = vim.fn.hostname()
+    if string.find(hostname, "raghu") then
+      return "claude"
+    else
+      return "ollama"
+    end
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -74,12 +85,18 @@ require("lazy").setup({
 	},
 	config = function()
 		require("avante").setup({
-			provider = "ollama",
+      ---@alias Provider "claude" 
+			provider = avante_provider(),
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-20240620",
+        temperature = 0,
+        max_tokens = 4096,
+      },
 			hints = {
 				enabled = true,
 			},
 			vendors = {
-				-- provider = "ollama", -- Only recommend using Claude
 				---@type AvanteProvider
 				ollama = {
 					  ["local"] = true,

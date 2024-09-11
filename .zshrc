@@ -103,6 +103,11 @@ if [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
 fi
 
+if [ -f ~/.secrets ]; then
+  source ~/.secrets
+fi
+
+eval "$(zoxide init zsh)"
 
 # Znap
 # Download Znap, if it's not there yet.
