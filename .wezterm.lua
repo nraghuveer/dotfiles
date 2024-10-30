@@ -17,7 +17,8 @@ config.keys = {
     action = wezterm.action.ReloadConfiguration,
   },
 }
-
+config.color_scheme = 'Gruvbox light, soft (base16)'
+config.automatically_reload_config = true
 
 return config
 

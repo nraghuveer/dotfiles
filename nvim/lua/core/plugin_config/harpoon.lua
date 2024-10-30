@@ -33,5 +33,8 @@ vim.keymap.set('n', '<leader>ml', ':Telescope harpoon marks<CR>')
 vim.keymap.set('n', '<leader>ma', ':lua require("harpoon.mark").add_file()<CR>')
 vim.keymap.set('n', '<leader>mn', ':lua require("harpoon.ui").nav_next()<CR>')
 vim.keymap.set('n', '<leader>mp', ':lua require("harpoon.ui").nav_prev()<CR>')
-
-
+vim.keymap.set('n', '<leader>m1', ':lua require("harpoon.term").gotoTerminal(1)<CR>')
+vim.keymap.set('n', '<leader>m2', ':lua require("harpoon.term").gotoTerminal(2)<CR>')
+vim.keymap.set('n', '<leader>m3', ':lua require("harpoon.term").gotoTerminal(3)<CR>')
+vim.keymap.set('n', '<leader>m4', ':lua require("harpoon.term").gotoTerminal(4)<CR>')
+vim.keymap.set('n', '<leader>m5', ':lua require("harpoon.term").gotoTerminal(5)<CR>')

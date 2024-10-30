@@ -25,7 +25,45 @@ require("lazy").setup({
   { -- color schemes
     "vague2k/vague.nvim",
     "d00h/nvim-rusticated",
+    "chiendo97/intellij.vim",
+    "rebelot/kanagawa.nvim",
   },
+  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+ {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    }
+ },
+ -- {
+ --  "karb94/neoscroll.nvim",
+ --  config = function ()
+ --    require('neoscroll').setup({})
+ --  end
+ -- },
+ {
+    "f-person/git-blame.nvim",
+    -- load the plugin at startup
+    event = "VeryLazy",
+    -- Because of the keys part, you will be lazy loading this plugin.
+    -- The plugin wil only load once one of the keys is used.
+    -- If you want to load the plugin at startup, add something like event = "VeryLazy",
+    -- or lazy = false. One of both options will work.
+    opts = {
+        -- your configuration comes here
+        -- for example
+        enabled = false,  -- if you want to enable the plugin
+        message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+        date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+        virtual_text_column = 1,  -- virtual text start column, check Start virtual text at column section for more options
+	},
+},
+  {"natecraddock/sessions.nvim"},
+
+  -- {
+  -- "Shatur/neovim-session-manage",
+  -- dependencies = { 'nvim-lua/plenary.nvim' },
+  -- },
   {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -36,14 +74,12 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
     opts = {},
   },
   {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
-	"nvimdev/lspsaga.nvim",
+	  "nvimdev/lspsaga.nvim",
     "lukas-reineke/lsp-format.nvim",
 
   },
@@ -61,6 +97,23 @@ require("lazy").setup({
       require("lazy").setup({
         { "nvim-treesitter/nvim-treesitter" },
       })
+    end,
+  },
+  {
+  "leath-dub/snipe.nvim",
+  keys = {
+    {"gb", function () require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu"}
+  },
+  opts = {}
+  },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+        require("peek").setup()
+        vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+        vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
   {
@@ -149,6 +202,7 @@ require("lazy").setup({
 	},
 	},
   }
-
 })
+
+
 

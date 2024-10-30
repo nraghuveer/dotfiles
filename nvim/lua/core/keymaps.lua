@@ -4,6 +4,5 @@ vim.keymap.set('n', '<leader>j', ':wincmd j<CR>')
 vim.keymap.set('n', '<leader>h', ':wincmd h<CR>')
 vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
 
--- clear search
--- vim.keymap.set('n', '<leader>vnh', ':nohlsearch<CR>')
+vim.api.nvim_set_keymap('n', '<leader>ve', ':Explore<CR>', { noremap = true, silent = true })
 
