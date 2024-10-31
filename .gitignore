@@ -1,1 +1,11 @@
 nvim/lazy
+# Tool and configuration directories
+ecu_checkout/
+htop/
+iterm2/
+jgit/
+kustomize/
+portal/
+raycast/
+zed/
+zellij/
