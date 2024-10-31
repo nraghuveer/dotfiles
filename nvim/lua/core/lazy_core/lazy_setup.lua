@@ -183,21 +183,22 @@ require("lazy").setup({
           },
         },
       },
-      {
-        dir = "/Users/rnaraharisetti/.config/bufhop.nvim",
-        name = "bufhop",
-        config = function()
-          require('bufhop').setup()
-        end
+
+    },
+    {
+      dir = "/Users/rnaraharisetti/.config/bufhop.nvim",
+      name = "bufhop",
+      config = function()
+        require('bufhop').setup()
+      end
+    },
+    {
+      -- Make sure to setup it properly if you have lazy=true
+      'MeanderingProgrammer/render-markdown.nvim',
+      opts = {
+        file_types = { "markdown", "Avante" },
       },
-      {
-        -- Make sure to setup it properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
+      ft = { "markdown", "Avante" },
     },
   }
 })
