@@ -28,6 +28,10 @@ require("lazy").setup({
     "d00h/nvim-rusticated",
     "chiendo97/intellij.vim",
     "rebelot/kanagawa.nvim",
+    "dgox16/oldworld.nvim",
+    "zaldih/themery.nvim",
+    { "rose-pine/neovim", name = "rose-pine" },
+    { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
   },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {

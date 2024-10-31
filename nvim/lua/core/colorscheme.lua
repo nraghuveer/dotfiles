@@ -2,9 +2,28 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- vim.cmd('colorscheme github_dark_dimmed')
 -- vim.cmd('colorscheme kanagawa-wave')
-vim.cmd('colorscheme vague')
+-- vim.cmd('colorscheme vague')
+vim.cmd('colorscheme oldworld')
 -- vim.cmd('colorscheme rusticated')
 -- vim.cmd('colorscheme intellij')
+--
+require("themery").setup({
+  themes = { "kanagawa-wave", "kanagawa-dragon", "oldworld", "vague", "rose-pine", "catppuccin"},
+  livePreview = true,
+})
+
+require("catppuccin").setup({
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    treesitter = true,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+  }
+})
+
 
 require("vague").setup({
   transparent = false, -- don't set background

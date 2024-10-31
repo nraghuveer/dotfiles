@@ -6,6 +6,7 @@
 require("core.lazy_core.lazy_setup")
 -- require('avante_lib').load()
 require('core.plugin_config.telescope')
+require('core.plugin_config.completions')
 require('core.plugin_config.lsp_config')
 require('core.plugin_config.harpoon')
 require('core.plugin_config.markdown')
@@ -13,4 +14,3 @@ require('core.plugin_config.sessions')
 require('core.colorscheme')
 require('core.keymaps')
 require('core.options')
-
