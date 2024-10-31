@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls" }
+  ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls", "pyright" }
 })
 -- indent lines
 local highlight = {
@@ -146,6 +146,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
+-- python
+require("lspconfig").pyright.setup {
+  -- on_attach = require("lsp-format").on_attach,
+  capabilities = capabilities,
+}
+
 -- Lua
 require("lspconfig").lua_ls.setup {
   on_attach = require("lsp-format").on_attach,
@@ -165,11 +171,8 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
--- format on save
-
 -- gopls
 require("lsp-format").setup {}
-require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
 require("lspconfig").gopls.setup {
   capabilities = capabilities,
   on_attach = require("lsp-format").on_attach,
