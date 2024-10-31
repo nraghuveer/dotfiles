@@ -25,7 +25,8 @@ local function get_short_name(fullpath)
     table.insert(result, parts[i]:sub(1, 1))
   end
   table.insert(result, parts[#parts])
-  return table.concat(result, '/')
+  -- return table.concat(result, '/')
+  return parts[#parts]
 end
 
 local augroup = vim.api.nvim_create_augroup("Scartch", { clear = true })
@@ -121,7 +122,7 @@ local function show_buffers()
   vim.cmd('vertical resize 50') -- Adjust width as needed
   vim.api.nvim_win_set_buf(0, events_buf)
   for i = 1, 9 do
-    vim.keymap.set('n', string.format('<leader>z%d', i), function()
+    vim.keymap.set('n', string.format('hh%d', i), function()
       switch_to_buffer_by_index(i)
     end)
   end
