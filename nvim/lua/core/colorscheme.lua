@@ -3,12 +3,13 @@ vim.opt.background = "dark"
 -- vim.cmd('colorscheme github_dark_dimmed')
 -- vim.cmd('colorscheme kanagawa-wave')
 -- vim.cmd('colorscheme vague')
-vim.cmd('colorscheme oldworld')
+-- vim.cmd('colorscheme oldworld')
 -- vim.cmd('colorscheme rusticated')
 -- vim.cmd('colorscheme intellij')
+vim.cmd('colorscheme vscode')
 --
 require("themery").setup({
-  themes = { "kanagawa-wave", "kanagawa-dragon", "oldworld", "vague", "rose-pine", "catppuccin"},
+  themes = { "kanagawa-wave", "kanagawa-dragon", "oldworld", "vague", "rose-pine", "catppuccin", "intellij", "rusticated", "vscode" },
   livePreview = true,
 })
 

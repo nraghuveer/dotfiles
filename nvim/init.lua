@@ -5,6 +5,7 @@
 -- require("core.plugin_config")
 require("core.lazy_core.lazy_setup")
 -- require('avante_lib').load()
+require('core.neophyte')
 require('core.plugin_config.telescope')
 require('core.plugin_config.completions')
 require('core.plugin_config.lsp_config')

@@ -23,6 +23,11 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  {
+    'tim-harding/neophyte',
+    tag = '0.3.0',
+    event = 'VeryLazy',
+  },
   { -- color schemes
     "vague2k/vague.nvim",
     "d00h/nvim-rusticated",
@@ -32,6 +37,7 @@ require("lazy").setup({
     "zaldih/themery.nvim",
     { "rose-pine/neovim", name = "rose-pine" },
     { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
+    "Mofiqul/vscode.nvim",
   },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
@@ -82,11 +88,22 @@ require("lazy").setup({
     opts = {},
   },
   {
+    "L3MON4D3/LuaSnip",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "nvimdev/lspsaga.nvim",
     "lukas-reineke/lsp-format.nvim",
-
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
+    opts = {
+      bind = true,
+      handler_opts = {
+        border = "rounded"
+      }
+    },
+    config = function(_, opts) require 'lsp_signature'.setup(opts) end
   },
   {
     'nvim-telescope/telescope.nvim',

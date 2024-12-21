@@ -6,7 +6,6 @@ local events_buf = nil
 
 -- TODO
 -- Crop until the project name for shrot name
--- fix the line numbers on buffers
 -- dynamic bindings - vimium kinda
 
 local function get_short_name(fullpath)
@@ -26,6 +25,7 @@ local function get_short_name(fullpath)
   end
   table.insert(result, parts[#parts])
   -- return table.concat(result, '/')
+
   return parts[#parts]
 end
 

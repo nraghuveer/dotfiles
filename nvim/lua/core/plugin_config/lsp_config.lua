@@ -150,7 +150,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 require("lspconfig").pyright.setup {
   -- on_attach = require("lsp-format").on_attach,
   capabilities = capabilities,
+  -- settings = {
+  --   -- pyright = { autoImportCompletion = true, },
+  --   python = {
+  --     analysis = {
+  --       -- autoSearchPaths = true, diagnosticMode = 'openFilesOnly', useLibraryCodeForTypes = true, typeCheckingMode = 'off'
+  --     }
+  --   }
+  -- }
 }
+
+
+
 
 -- Lua
 require("lspconfig").lua_ls.setup {
