@@ -9,7 +9,7 @@ vim.opt.background = "dark"
 vim.cmd('colorscheme vscode')
 --
 require("themery").setup({
-  themes = { "kanagawa-wave", "kanagawa-dragon", "oldworld", "vague", "rose-pine", "catppuccin", "intellij", "rusticated", "vscode" },
+  themes = { "kanagawa-wave", "kanagawa-dragon", "oldworld", "vague", "rose-pine", "catppuccin", "intellij", "rusticated", "vscode", "fleet" },
   livePreview = true,
 })
 

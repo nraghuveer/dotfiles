@@ -1,18 +1,35 @@
-vim.api.nvim_create_autocmd("User", {
-  pattern = "ToggleNitReviewerPrompt"
-  callback = function() require("avante.config").override({system_prompt = "You'll act as a NIT picky code reviewer, who is know to point out suggestions to code which are very opinionated. So I am give you set of opinons you need to have while review the code. For reach review request, the input is gonna be in git diff format, and your job is to point out snippets of code which go against the given set of opinions.
-
-List of Opinions:
-
-1. Dont assign constant values to variables, use constant variables.
-2. Dont use single, two letter names for variables."}) end,
+require("avante").setup({
+  provider = "ollama",
+  hvaints = {
+    enabled = true,
+  },
+  vendors = {
+    -- provider = "ollama"
+    ---@type AvanteProvider
+    ollama = {
+      ["local"] = true,
+      endpoint = "https://tgi.fw.teslamotors.com/llama3-instruct/v1",
+      model = "llama3.3",
+      parse_curl_args = function(opts, code_opts)
+        return {
+          url = opts.endpoint .. "/chat/completions",
+          headers = {
+            ["Accept"] = "application/json",
+            ["Content-Type"] = "application/json",
+          },
+          body = {
+            model = opts.model,
+            messages = require("avante.providers").openai.parse_message(code_opts),
+            temperature = 0,
+            max_tokens = 8192,
+            stream = true, -- this will be set by default.
+          },
+        }
+      end,
+      -- The below function is used if the vendors has specific SSE spec that is not claude or openai.
+      parse_response_data = function(data_stream, event_state, opts)
+        require("avante.providers").openai.parse_response(data_stream, event_state, opts)
+      end,
+    },
+  },
 })
-
-vim.api.nvim_set_keymap("n", "<leader>an", ":autocmd User ToggleNitReviewerPrompt<CR>", { noremap = true, silent = true })
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "Toggle10xDev"
-  callback = function() require("avante.config").override({system_prompt = "you are senior engineer who is not only quick but also brief with what you output. you are going to help me code and other programming related stuff."}) end,
-})
-
-vim.api.nvim_set_keymap("n", "<leader>ad", ":autocmd User Toggle10xDev<CR>", { noremap = true, silent = true })

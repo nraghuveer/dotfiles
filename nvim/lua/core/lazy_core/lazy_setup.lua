@@ -23,11 +23,6 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  {
-    'tim-harding/neophyte',
-    tag = '0.3.0',
-    event = 'VeryLazy',
-  },
   { -- color schemes
     "vague2k/vague.nvim",
     "d00h/nvim-rusticated",
@@ -38,6 +33,7 @@ require("lazy").setup({
     { "rose-pine/neovim", name = "rose-pine" },
     { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
     "Mofiqul/vscode.nvim",
+    "felipeagc/fleet-theme-nvim",
   },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
@@ -46,12 +42,6 @@ require("lazy").setup({
       -- add any options here
     }
   },
-  -- {
-  --  "karb94/neoscroll.nvim",
-  --  config = function ()
-  --    require('neoscroll').setup({})
-  --  end
-  -- },
   {
     "f-person/git-blame.nvim",
     -- load the plugin at startup
@@ -70,7 +60,6 @@ require("lazy").setup({
     },
   },
   { "natecraddock/sessions.nvim" },
-
   -- {
   -- "Shatur/neovim-session-manage",
   -- dependencies = { 'nvim-lua/plenary.nvim' },
@@ -132,45 +121,22 @@ require("lazy").setup({
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    lazy = false,
-    version = false,
-    build = "make BUILD_FROM_SOURCE=true",
-    opts = {
-      -- add any opts here
-    },
+    build = "make",
+    opts = {},
     config = function()
       require("avante").setup({
         provider = "ollama",
-        hints = {
+        hvaints = {
           enabled = true,
         },
         vendors = {
-          -- provider = "ollama", -- Only recommend using Claude
+          -- provider = "ollama"
           ---@type AvanteProvider
           ollama = {
-            ["local"] = true,
+            __inherited_from = "openai",
+            api_key_name = "",
             endpoint = "https://tgi.fw.teslamotors.com/llama3-instruct/v1",
-            model = "llama3.1",
-            parse_curl_args = function(opts, code_opts)
-              return {
-                url = opts.endpoint .. "/chat/completions",
-                headers = {
-                  ["Accept"] = "application/json",
-                  ["Content-Type"] = "application/json",
-                },
-                body = {
-                  model = opts.model,
-                  messages = require("avante.providers").openai.parse_message(code_opts),
-                  temperature = 0,
-                  max_tokens = 8192,
-                  stream = true, -- this will be set by default.
-                },
-              }
-            end,
-            -- The below function is used if the vendors has specific SSE spec that is not claude or openai.
-            parse_response_data = function(data_stream, event_state, opts)
-              require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-            end,
+            model = "llama3.3",
           },
         },
       })
@@ -187,39 +153,6 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-
-    },
-    {
-      dir = "/Users/rnaraharisetti/.config/bufhop.nvim",
-      name = "bufhop",
-      config = function()
-        require('bufhop').setup()
-      end
-    },
-    {
-      -- Make sure to setup it properly if you have lazy=true
-      'MeanderingProgrammer/render-markdown.nvim',
-      opts = {
-        file_types = { "markdown", "Avante" },
-      },
-      ft = { "markdown", "Avante" },
     },
   }
 })
