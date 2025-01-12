@@ -3,6 +3,7 @@ require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls", "pyright" }
 })
 require("ibl").setup()
+require("autoclose").setup()
 
 vim.cmd("set scl=yes")
 vim.cmd("set autoindent noexpandtab tabstop=4 shiftwidth=4 invlist")
@@ -204,4 +205,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
   end
 })
-
