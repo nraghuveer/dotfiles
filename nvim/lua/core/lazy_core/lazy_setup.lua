@@ -23,6 +23,7 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  { "github/copilot.vim" },
   { -- color schemes
     "vague2k/vague.nvim",
     "d00h/nvim-rusticated",
