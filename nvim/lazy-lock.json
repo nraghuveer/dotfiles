@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "33b06d72d220aa56a7ce80a0dd6f06c70cd82b9d" },
+  "autoclose.nvim": { "branch": "main", "commit": "b2077aa2c83df7ebc19b2a20a3a0654b24ae9c8f" },
   "avante.nvim": { "branch": "main", "commit": "81e5f1937f47a7fc855e03a41f2af445f2777de9" },
   "catppuccin": { "branch": "main", "commit": "f67b886d65a029f12ffa298701fb8f1efd89295d" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
@@ -31,6 +32,7 @@
   "snipe.nvim": { "branch": "main", "commit": "2550012916d4fb21d6d1c7a88a9bddde651bb1f0" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "themery.nvim": { "branch": "main", "commit": "bfa58f4b279d21cb515b28023e1b68ec908584b2" },
+  "treewalker.nvim": { "branch": "main", "commit": "da50eacff9b482593ad09bd83835339558ac1dac" },
   "vague.nvim": { "branch": "main", "commit": "ceeac4d04faaa83df542992098e01d893a20b5b3" },
   "vscode.nvim": { "branch": "main", "commit": "18097b7aa47538afa780c821309c8b992972d726" }
 }
