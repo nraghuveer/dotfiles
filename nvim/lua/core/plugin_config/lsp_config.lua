@@ -205,3 +205,17 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
   end
 })
+
+-- clangd
+require("lspconfig").clangd.setup {
+  capabilities = capabilities,
+  on_attach = require("lsp-format").on_attach,
+  cmd = { "clangd" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = require("lspconfig/util").root_pattern(".clangd", ".clang-format", "compile_commands.json", "compile_flags.txt", ".git"),
+  settings = {
+    clangd = {
+      fallbackFlags = { "-std=c++17" },
+    },
+  },
+}
