@@ -55,6 +55,7 @@ return require('packer').startup(function(use)
   use 'rmagatti/auto-session'
   use "rebelot/kanagawa.nvim"
   use "vague2k/vague.nvim"
+  use "m4xshen/autoclose.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

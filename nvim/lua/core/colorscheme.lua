@@ -14,6 +14,7 @@ require("themery").setup({
 })
 
 require("catppuccin").setup({
+  transparent_background = true,
   integrations = {
     cmp = true,
     gitsigns = true,
@@ -27,7 +28,7 @@ require("catppuccin").setup({
 
 
 require("vague").setup({
-  transparent = false, -- don't set background
+  transparent = true, -- don't set background
   style = {
     -- "none" is the same thing as default. But "italic" and "bold" are also valid options
     comments = "italic",
