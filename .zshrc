@@ -71,8 +71,24 @@ source $HOME/.config/.exportsrc
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git)
+plugins=(git fzf)
 source $ZSH/oh-my-zsh.sh
+
+# FZF Configuration
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "echo {}" --preview-window down:3:hidden:wrap --bind "ctrl-p:toggle-preview"'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+# FZF Tab for better autocomplete
+znap source Aloxaf/fzf-tab
+
+# FZF Tab configuration
+zstyle ':completion:*' fzf-preview 'echo {}'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -la $realpath'
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'ls -la $realpath'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # User configuration
 
