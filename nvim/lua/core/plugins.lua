@@ -24,10 +24,14 @@ return require('packer').startup(function(use)
   }
   use {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    "glepnir/lspsaga.nvim",
+    commit = "e2f7f9044ec30067bc11800a9e266664b88cda22",
   }
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    commit = "482350b050bd413931c2cdd4857443c3da7d57cb",
+  }
+  use "neovim/nvim-lspconfig"
+  use "glepnir/lspsaga.nvim"
   use {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
@@ -55,6 +59,7 @@ return require('packer').startup(function(use)
   use 'rmagatti/auto-session'
   use "rebelot/kanagawa.nvim"
   use "vague2k/vague.nvim"
+  use "m4xshen/autoclose.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

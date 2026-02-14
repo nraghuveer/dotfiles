@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim
+-- Bootstrap lazy.nvimlazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -25,6 +25,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   { "github/copilot.vim" },
   { -- color schemes
+    "thesimonho/kanagawa-paper.nvim",
     "vague2k/vague.nvim",
     "d00h/nvim-rusticated",
     "chiendo97/intellij.vim",
@@ -100,7 +101,18 @@ require("lazy").setup({
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  { "nvim-treesitter/nvim-treesitter" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = {
+      ensure_installed = { "go" },
+      sync_install = true,
+      auto_install = true,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    }
+  },
   {
     "folke/lazy.nvim",
     dependencies = {
@@ -130,9 +142,18 @@ require("lazy").setup({
         hvaints = {
           enabled = true,
         },
+        behaviour = {
+          auto_suggestions = false, -- Experimental stage
+        },
         vendors = {
-          -- provider = "ollama"
-          ---@type AvanteProvider
+          openai = {
+            endpoint = "https://api.openai.com/v1",
+            model = "gpt-4o",             -- your desired model (or use gpt-4o, etc.)
+            timeout = 30000,              -- Timeout in milliseconds, increase this for reasoning models
+            temperature = 0,
+            max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+            --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+          },
           ollama = {
             __inherited_from = "openai",
             api_key_name = "",

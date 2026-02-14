@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls", "pyright" }
+  ensure_installed = { "lua_ls", "gopls", "clangd", "terraformls", "zls", "pyright", "rust_analyzer" }
 })
 require("ibl").setup()
 require("autoclose").setup()
@@ -205,3 +205,43 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
   end
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.rs" },
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
+
+-- clangd
+require("lspconfig").clangd.setup {
+  capabilities = capabilities,
+  on_attach = require("lsp-format").on_attach,
+  cmd = { "clangd" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = require("lspconfig/util").root_pattern(".clangd", ".clang-format", "compile_commands.json", "compile_flags.txt", ".git"),
+  settings = {
+    clangd = {
+      fallbackFlags = { "-std=c++17" },
+    },
+  },
+}
+
+-- rust-analyzer
+require("lspconfig").rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = require("lsp-format").on_attach,
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_dir = require("lspconfig/util").root_pattern("Cargo.toml", "rust-project.json", ".git"),
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+}

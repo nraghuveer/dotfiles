@@ -22,3 +22,16 @@ vim.opt.list = false
 
 vim.opt.modifiable = true
 
+-- Background image with opacity
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.opt.termguicolors = true
+
+-- Set background image
+vim.cmd([[
+  augroup BackgroundImage
+    autocmd!
+    autocmd VimEnter * call system('osascript -e "tell application \"Terminal\" to set background image of front window to POSIX file \"/Users/raghuveernaraharisetti/Documents/wallpapers/siva.jpeg\""')
+  augroup END
+]])
+
